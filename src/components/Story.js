@@ -19,26 +19,28 @@ import {
   Upload, 
   Row, 
   Col,
-  Typography
+  Typography,
+  Select,
+  Space
 } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
-import Prompts from "./Prompts";
 
 const { Meta } = Card;
 const { Paragraph } = Typography;
+const { Option } = Select;
 
 const Story = () => {
   const [stories, setStories] = useState([]);
   const [input, setInput] = useState("");
   const [title, setTitle] = useState("");
   const [thumbnail, setThumbnail] = useState(null);
-  const [selectedPrompt, setSelectedPrompt] = useState("");
   const [editingId, setEditingId] = useState(null);
   const [editText, setEditText] = useState("");
   const [editTitle, setEditTitle] = useState("");
   const [editThumbnail, setEditThumbnail] = useState(null);
   const [editModalVisible, setEditModalVisible] = useState(false);
   const [viewStory, setViewStory] = useState(null);
+  const [promptType, setPromptType] = useState("romantic");
 
   useEffect(() => {
     const q = query(collection(db, "stories"), orderBy("timestamp"));
@@ -71,7 +73,7 @@ const Story = () => {
 
         const newStory = {
           title: title,
-          text: selectedPrompt ? `${selectedPrompt} ${input}` : input,
+          text: input,
           timestamp: new Date(),
           user: auth.currentUser ? auth.currentUser.email : "Anonymous",
           thumbnail: thumbnailBase64,
@@ -80,8 +82,8 @@ const Story = () => {
         await addDoc(collection(db, "stories"), newStory);
         setInput("");
         setTitle("");
-        setSelectedPrompt("");
         setThumbnail(null);
+        message.success("Story added successfully!");
       } catch (error) {
         console.error("Error adding story:", error);
         message.error("Failed to add to story");
@@ -152,10 +154,34 @@ const Story = () => {
     setViewStory(null);
   };
 
+  const generatePrompt = () => {
+    const prompts = {
+      romantic: [
+        "It was love at first sight when...",
+        "Their hands touched accidentally, and suddenly...",
+        "Under the starry sky, they realized...",
+      ],
+      funny: [
+        "Their first date was a disaster because...",
+        "They knew it was meant to be when they both...",
+        "Love struck in the most unexpected place: ...",
+      ],
+      mysterious: [
+        "The secret admirer left a cryptic message...",
+        "A chance encounter at midnight led to...",
+        "The old locket held a surprise that would change everything...",
+      ],
+    };
+    
+    const selectedPrompts = prompts[promptType] || prompts.romantic;
+    const randomPrompt = selectedPrompts[Math.floor(Math.random() * selectedPrompts.length)];
+    setInput(randomPrompt);
+  };
+
   return (
-    <div style={{ padding: '20px' }}>
-      <h1>Love Story Builder</h1>
-      <div style={{ marginBottom: '20px' }}>
+    <div style={{ padding: '10px', maxWidth: '1200px', margin: '0 auto' }}>
+      <h1 style={{ fontSize: '24px', marginBottom: '15px', textAlign: 'center' }}>Love Story Builder</h1>
+      <div style={{ marginBottom: '15px' }}>
         <Input
           value={title}
           onChange={(e) => setTitle(e.target.value)}
@@ -169,7 +195,7 @@ const Story = () => {
           rows={4}
           style={{ marginBottom: '10px' }}
         />
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+        <Space direction="vertical" style={{ width: '100%', marginBottom: '10px' }}>
           <Upload
             beforeUpload={(file) => {
               setThumbnail(file);
@@ -177,19 +203,31 @@ const Story = () => {
             }}
             showUploadList={false}
           >
-            <Button icon={<UploadOutlined />}>
+            <Button icon={<UploadOutlined />} block>
               Upload Thumbnail
             </Button>
           </Upload>
-          <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
-            <Prompts onSelectPrompt={(prompt) => setSelectedPrompt(prompt)} />
-            <Button type="primary" onClick={addToStory}>
+          <Select
+            style={{ width: '100%' }}
+            placeholder="Select a prompt type"
+            onChange={(value) => setPromptType(value)}
+            defaultValue="romantic"
+          >
+            <Option value="romantic">Romantic</Option>
+            <Option value="funny">Funny</Option>
+            <Option value="mysterious">Mysterious</Option>
+          </Select>
+          <Space style={{ width: '100%' }}>
+            <Button onClick={generatePrompt} style={{ flex: 1 }}>
+              Generate Prompt
+            </Button>
+            <Button type="primary" onClick={addToStory} style={{ flex: 1 }}>
               Add to Story
             </Button>
-          </div>
-        </div>
+          </Space>
+        </Space>
       </div>
-      <Row gutter={[16, 16]} style={{ marginBottom: '20px' }}>
+      <Row gutter={[8, 8]}>
         {stories.map((item) => (
           <Col xs={24} sm={12} md={8} lg={6} key={item.id}>
             <Card
@@ -199,21 +237,28 @@ const Story = () => {
                   <img
                     alt="thumbnail"
                     src={item.thumbnail}
-                    style={{ height: 150, objectFit: 'cover' }}
+                    style={{ height: 120, objectFit: 'cover' }}
                   />
                 ) : (
-                  <div style={{ height: 150, backgroundColor: '#f5f5f5' }}></div>
+                  <div style={{ height: 120, backgroundColor: '#f5f5f5' }}></div>
                 )
               }
               onClick={() => handleViewStory(item)}
             >
-              <Meta title={item.title} description={item.text.substring(0, 100) + '...'} />
+              <Meta 
+                title={item.title} 
+                description={
+                  <Paragraph ellipsis={{ rows: 2 }}>
+                    {item.text}
+                  </Paragraph>
+                } 
+              />
               <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '10px' }}>
-                <Button type="primary" onClick={(e) => {
+                <Button size="small" type="primary" onClick={(e) => {
                   e.stopPropagation();
                   handleEdit(item.id, item.text, item.title, item.thumbnail);
                 }}>Edit</Button>
-                <Button type="danger" onClick={(e) => {
+                <Button size="small" danger onClick={(e) => {
                   e.stopPropagation();
                   handleDelete(item.id);
                 }}>Delete</Button>
@@ -262,7 +307,7 @@ const Story = () => {
           footer={null}
           onCancel={handleCloseView}
           title={viewStory.title}
-          width={800}
+          width="90%"
           bodyStyle={{ maxHeight: '70vh', overflow: 'auto' }}
         >
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
