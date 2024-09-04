@@ -118,14 +118,7 @@ const ReelsComponent = () => {
                   >
                     View
                   </Button>,
-                  <Button
-                    type="text"
-                    icon={<DownloadOutlined />}
-                    onClick={() => window.open(item.url, '_blank')}
-                    className="text-green-500 hover:text-green-700"
-                  >
-                    Download
-                  </Button>,
+                 
                   <Button
                     type="text"
                     icon={<DeleteOutlined />}
