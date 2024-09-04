@@ -7,6 +7,11 @@ const promptCategories = {
     "The stars aligned as...",
     "Their hearts beat in unison when...",
     "Under the moonlit sky, they...",
+    "As the sun dipped below the horizon, they found solace in each other's arms, the world around them fading into the background...",
+    "He looked into her eyes, the words unspoken yet perfectly understood between them...",
+    "Their fingers intertwined, the touch sending a rush of warmth through their souls as they stood on the rooftop, the city below a blur...",
+    "In the quiet of the night, beneath a blanket of stars, he whispered the words she'd longed to hear...",
+    "With each heartbeat, they knew they were meant for each other, the universe conspiring to bring them together..."
   ],
   fantasy: [
     "In the mystical forest of Eldoria, ...",
