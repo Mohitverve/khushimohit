@@ -1,0 +1,13 @@
+.Reels{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .Insta{
+    text-align: center;
+  }
+  
+  .Posts button{
+  align-items: center ;
+  }
+  

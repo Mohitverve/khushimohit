@@ -1,0 +1,51 @@
+/* src/Login.css */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Georgia', serif;
+    background: url('https://example.com/romantic-background.jpg') no-repeat center center fixed;
+    background-size: cover;
+  }
+  
+  .login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgba(255, 182, 193, 0.5); /* Light pink overlay */
+  }
+  
+  .login-card {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  h2 {
+    color: #000000; /* Hot pink color */
+    margin-bottom: 10px;
+  }
+  
+  p {
+    color: #000000; /* Chocolate color */
+    font-size: 1.1em;
+    margin-bottom: 20px;
+  }
+  
+  .google-signin-btn {
+    background-color: #ff1493; /* Deep pink color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .google-signin-btn:hover {
+    background-color: #ff69b4; /* Hot pink color */
+  }
+  
