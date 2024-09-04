@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Input, List, Card, notification, Spin } from 'antd';
+import { EyeOutlined, DeleteOutlined, PlusOutlined } from '@ant-design/icons';
 import { collection, addDoc, deleteDoc, doc, getDocs } from 'firebase/firestore';
-import { EyeOutlined, DeleteOutlined, DownloadOutlined, PlusOutlined } from '@ant-design/icons';
 import { db } from '../components/firebaseConfig';
 import '../styles/reels.css';
 
@@ -61,91 +61,80 @@ const ReelsComponent = () => {
   }, []);
 
   return (
-   <div className='Reels'>
+    <div className="Reels">
+      <div className="container mx-auto p-4 bg-gray-100 min-h-screen">
+        <h1 className="text-2xl font-bold mb-6 text-center">Instagram Reels Dashboard</h1>
+        
 
-    <div className="p-8 max-w-4xl mx-auto bg-gray-100 min-h-screen">
-      <div className='Insta'>
-      <h1 className="text-3xl font-bold mb-8 text-center text-gray-800">Instagram Reels Dashboard</h1>
+        <Card className="mb-6">
+            <div className='reels'>
+            <Input
+            value={url}
+            onChange={(e) => setUrl(e.target.value)}
+            placeholder="Enter Instagram Reel URL"
+            className="mb-4"
+          />
+            </div>
+         
+          <Input
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder="Enter Reel Name"
+            className="mb-6"
+          />
+          <div className='Button'>
+          <Button 
+            type="primary" 
+            icon={<PlusOutlined />} 
+            onClick={handleAddReel} 
+            className="w-full"
+          >
+            Add Reel
+          </Button>
+          </div>
+          
+        </Card>
 
+        {loading ? (
+          <div className="text-center py-10">
+            <Spin size="large" />
+          </div>
+        ) : (
+          <List
+            grid={{ gutter: 16, xs: 1, sm: 2, md: 3 }}
+            dataSource={reels}
+            renderItem={item => (
+              <List.Item>
+                <Card
+                  actions={[
+                    <Button
+                      type="link"
+                      icon={<EyeOutlined />}
+                      onClick={() => window.open(item.url, '_blank')}
+                    >
+                      View
+                    </Button>,
+                    <Button
+                      type="link"
+                      icon={<DeleteOutlined />}
+                      onClick={() => handleDeleteReel(item.id)}
+                      danger
+                    >
+                      Delete
+                    </Button>
+                  ]}
+                >
+                  <Card.Meta 
+                    title={item.name || 'Instagram Reel'}
+                    description={`Reel ID: ${item.reelId || 'Invalid Reel ID'}`}
+                  />
+                </Card>
+              </List.Item>
+            )}
+          />
+        )}
       </div>
-      <div className="bg-white rounded-lg shadow-md p-6 mb-8 flex flex-col items-center">
-        <Input
-          value={url}
-          onChange={(e) => setUrl(e.target.value)}
-          placeholder="Enter Instagram Reel URL"
-          className="rounded-md mb-4 w-full max-w-md"
-          style={{ marginBottom: '20px' }} 
-        />
-        <Input
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          placeholder="Enter Reel Name"
-          className="rounded-md mb-4 w-full max-w-md"
-          style={{ marginBottom: '20px' }} 
-        />
-        <div className='Posts'>
-        <Button 
-          type="primary" 
-          icon={<PlusOutlined />} 
-          onClick={handleAddReel} 
-          className="w-full max-w-md h-10 rounded-md bg-blue-500 hover:bg-blue-600 border-none"
-          style={{ marginBottom: '40px' }} 
-        >
-          Add Reel
-        </Button>
-        </div>
-       
-      </div>
-      {loading ? (
-        <div className="text-center py-10">
-          <Spin size="large" />
-        </div>
-      ) : (
-        <List
-          grid={{ gutter: 16, column: 3 }} 
-          dataSource={reels}
-          renderItem={item => (
-            <List.Item>
-              <Card
-                hoverable
-                className="rounded-lg shadow-md transition-all duration-300 hover:shadow-lg"
-                actions={[
-                  <Button
-                    type="text"
-                    icon={<EyeOutlined />}
-                    onClick={() => window.open(item.url, '_blank')}
-                    className="text-blue-500 hover:text-blue-700"
-                  >
-                    View
-                  </Button>,
-                 
-                  <Button
-                    type="text"
-                    icon={<DeleteOutlined />}
-                    onClick={() => handleDeleteReel(item.id)}
-                    className="text-red-500 hover:text-red-700"
-                    danger
-                  >
-                    Delete
-                  </Button>
-                ]}
-              >
-                <Card.Meta 
-                  title={<span className="text-lg font-semibold">{item.name || 'Instagram Reel'}</span>}
-                  description={
-                    <span className="text-sm text-gray-500">
-                      {item.reelId ? `Reel ID: ${item.reelId}` : 'Invalid Reel ID'}
-                    </span>
-                  }
-                />
-              </Card>
-            </List.Item>
-          )}
-        />
-      )}
     </div>
-    </div>
-
   );
 };
 
