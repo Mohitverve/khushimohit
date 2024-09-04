@@ -10,7 +10,7 @@ import {
   updateDoc, 
   deleteDoc
 } from "firebase/firestore";
-import { 
+import {
   Button, 
   Input, 
   Modal, 
@@ -24,6 +24,8 @@ import {
   Space
 } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css'; // Import Quill styles
 
 const { Meta } = Card;
 const { Paragraph } = Typography;
@@ -86,7 +88,7 @@ const Story = () => {
         message.success("Story added successfully!");
       } catch (error) {
         console.error("Error adding story:", error);
-        message.error("Failed to add to story");
+        message.error("Failed to add story");
       }
     } else {
       message.warning("Please enter a title and story text");
@@ -106,7 +108,7 @@ const Story = () => {
       await deleteDoc(doc(db, "stories", id));
       message.success("Story deleted successfully");
     } catch (error) {
-      message.error("Failed to delete the story part");
+      message.error("Failed to delete the story");
     }
   };
 
@@ -131,8 +133,8 @@ const Story = () => {
         resetEditState();
         message.success("Story updated successfully!");
       } catch (error) {
-        console.error("Failed to update the story part:", error);
-        message.error("Failed to update the story part");
+        console.error("Failed to update the story:", error);
+        message.error("Failed to update the story");
       }
     } else {
       message.warning("Please enter a title and story text");
@@ -188,11 +190,10 @@ const Story = () => {
           placeholder="Story Title"
           style={{ marginBottom: '10px' }}
         />
-        <Input.TextArea
+        <ReactQuill
           value={input}
-          onChange={(e) => setInput(e.target.value)}
+          onChange={setInput}
           placeholder="Add to the story..."
-          rows={4}
           style={{ marginBottom: '10px' }}
         />
         <Space direction="vertical" style={{ width: '100%', marginBottom: '10px' }}>
@@ -282,11 +283,10 @@ const Story = () => {
           placeholder="Story Title"
           style={{ marginBottom: '10px' }}
         />
-        <Input.TextArea
+        <ReactQuill
           value={editText}
-          onChange={(e) => setEditText(e.target.value)}
+          onChange={setEditText}
           placeholder="Edit story text..."
-          rows={4}
           style={{ marginBottom: '10px' }}
         />
         <Upload
@@ -324,16 +324,15 @@ const Story = () => {
                 }}
               />
             )}
-            <Paragraph
+            <div
               style={{
                 textAlign: 'justify',
                 width: '100%',
                 fontSize: '16px',
                 lineHeight: '1.6'
               }}
-            >
-              {viewStory.text}
-            </Paragraph>
+              dangerouslySetInnerHTML={{ __html: viewStory.text }}
+            />
           </div>
         </Modal>
       )}
@@ -341,4 +340,4 @@ const Story = () => {
   );
 };
 
-export default Story; 
+export default Story;
