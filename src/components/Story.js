@@ -43,6 +43,7 @@ const Story = () => {
   const [editModalVisible, setEditModalVisible] = useState(false);
   const [viewStory, setViewStory] = useState(null);
   const [promptType, setPromptType] = useState("romantic");
+  const [fontFamily, setFontFamily] = useState('Georgia'); // Default font
 
   useEffect(() => {
     const q = query(collection(db, "stories"), orderBy("timestamp"));
@@ -122,7 +123,7 @@ const Story = () => {
         }
 
         const updatedStory = {
-          text: editText,
+          text: editText, // Ensure this includes HTML formatting
           title: editTitle,
           thumbnail: updatedThumbnail,
         };
@@ -190,11 +191,22 @@ const Story = () => {
           placeholder="Story Title"
           style={{ marginBottom: '10px' }}
         />
+        <Select
+          style={{ width: '100%', marginBottom: '10px' }}
+          placeholder="Select Font"
+          onChange={(value) => setFontFamily(value)}
+          defaultValue="Georgia"
+        >
+          <Option value="Georgia">Georgia</Option>
+          <Option value="Arial">Arial</Option>
+          <Option value="Times New Roman">Times New Roman</Option>
+          {/* Add more font options as needed */}
+        </Select>
         <ReactQuill
           value={input}
           onChange={setInput}
           placeholder="Add to the story..."
-          style={{ marginBottom: '10px' }}
+          style={{ marginBottom: '10px', fontFamily: fontFamily }}
         />
         <Space direction="vertical" style={{ width: '100%', marginBottom: '10px' }}>
           <Upload
@@ -272,10 +284,7 @@ const Story = () => {
         title="Edit Story"
         visible={editModalVisible}
         onOk={handleUpdate}
-        onCancel={() => {
-          setEditModalVisible(false);
-          resetEditState();
-        }}
+        onCancel={() => setEditModalVisible(false)}
       >
         <Input
           value={editTitle}
@@ -286,8 +295,8 @@ const Story = () => {
         <ReactQuill
           value={editText}
           onChange={setEditText}
-          placeholder="Edit story text..."
-          style={{ marginBottom: '10px' }}
+          placeholder="Edit the story..."
+          style={{ marginBottom: '10px', fontFamily: fontFamily }}
         />
         <Upload
           beforeUpload={(file) => {
@@ -296,46 +305,34 @@ const Story = () => {
           }}
           showUploadList={false}
         >
-          <Button icon={<UploadOutlined />} style={{ marginBottom: '10px' }}>
+          <Button icon={<UploadOutlined />} block>
             Upload New Thumbnail
           </Button>
         </Upload>
       </Modal>
-      {viewStory && (
-        <Modal
-          visible={true}
-          footer={null}
-          onCancel={handleCloseView}
-          title={viewStory.title}
-          width="90%"
-          bodyStyle={{ maxHeight: '70vh', overflow: 'auto' }}
-        >
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            {viewStory.thumbnail && (
-              <img
-                alt="thumbnail"
-                src={viewStory.thumbnail}
-                style={{
-                  width: '100%',
-                  maxWidth: '400px',
-                  height: 'auto',
-                  marginBottom: '20px',
-                  objectFit: 'cover'
-                }}
-              />
-            )}
+      <Modal
+        visible={!!viewStory}
+        footer={null}
+        onCancel={handleCloseView}
+        width="80%"
+        style={{ maxWidth: '1200px' }}
+      >
+        {viewStory && (
+          <>
+            <h2>{viewStory.title}</h2>
             <div
               style={{
                 textAlign: 'justify',
                 width: '100%',
                 fontSize: '16px',
-                lineHeight: '1.6'
+                lineHeight: '1.6',
+                fontFamily: fontFamily
               }}
               dangerouslySetInnerHTML={{ __html: viewStory.text }}
             />
-          </div>
-        </Modal>
-      )}
+          </>
+        )}
+      </Modal>
     </div>
   );
 };
