@@ -144,6 +144,9 @@ function Navbar() {
       <Menu.Item key="Story">
         <Link to="/Story">Story</Link>
       </Menu.Item>
+      <Menu.Item key="MoodJournal">
+        <Link to="/MoodJournal">Periods</Link>
+      </Menu.Item>
     </Menu>
   );
 
