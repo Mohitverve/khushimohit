@@ -30,7 +30,7 @@ const Pet = () => {
       }
     };
     fetchPetData();
-  }, []);
+}, [petRef]); 
 
   const updatePetData = async (data) => {
     await setDoc(petRef, data);
@@ -89,7 +89,7 @@ const Pet = () => {
   return (
     <Card
       className={`pet-container ${happy ? 'happy' : ''} ${hungry ? 'hungry' : ''}`}
-      title={<Title level={2}>My Virtual Pet</Title>}
+      title={<Title level={2}>Tufyy</Title>}
       actions={[
         <Button
           key="askHungry"
