@@ -1,19 +1,16 @@
-.flower-animation {
-    font-size: 2rem;
-    color: #ff69b4;
-    margin: 20px 0;
-    animation: float 2s ease-in-out infinite;
+.message-animation {
+    font-size: 18px;
+    color: #333;
+    margin: 10px 0;
   }
   
-  @keyframes float {
-    0% {
-      transform: translateY(0px);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
-    100% {
-      transform: translateY(0px);
-    }
+  .flower-rose-animation {
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  .rose-animation {
+    font-size: 48px;
+    transition: transform 2s ease-in-out;
   }
   
