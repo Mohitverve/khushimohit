@@ -32,11 +32,11 @@ const MoodJournal = () => {
   const [moodLogs, setMoodLogs] = useState([]);
   const [moodDescription, setMoodDescription] = useState('');
   const [timePeriod, setTimePeriod] = useState('week'); // Default filter to 'week'
-  const [ setShowFlower] = useState(false);
+  const [showFlower, setShowFlower] = useState(false);
   const [messageContent, setMessageContent] = useState('');
 
   // New period tracker state
-  const [periodStartDate, setPeriodStartDate] = useState(null);
+  const [periodStartDate, setPeriodStartDate] = useState('');
   const [cycleLength, setCycleLength] = useState(28); // Default cycle length in days
   const [periodLogs, setPeriodLogs] = useState([]); // State to store period logs
 
@@ -77,6 +77,15 @@ const MoodJournal = () => {
     }
   };
 
+  const deletePeriodLog = async (id) => {
+    try {
+      await deleteDoc(doc(db, 'periods', id));
+      message.success('Period log deleted!');
+    } catch (error) {
+      message.error('Failed to delete period log.');
+    }
+  };
+
   useEffect(() => {
     const unsubscribe = onSnapshot(collection(db, 'moods'), (snapshot) => {
       setMoodLogs(snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })));
@@ -84,7 +93,6 @@ const MoodJournal = () => {
     return () => unsubscribe();
   }, []);
 
-  // Fetch period logs
   useEffect(() => {
     const unsubscribe = onSnapshot(collection(db, 'periods'), (snapshot) => {
       setPeriodLogs(snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })));
@@ -177,6 +185,13 @@ const MoodJournal = () => {
       dataIndex: 'nextPeriodDate',
       key: 'nextPeriodDate',
     },
+    {
+      title: 'Action',
+      key: 'action',
+      render: (_, record) => (
+        <Button onClick={() => deletePeriodLog(record.id)} danger>Delete</Button>
+      ),
+    },
   ];
 
   return (
@@ -211,49 +226,44 @@ const MoodJournal = () => {
       )}
 
       {/* Mood Logs with Filter */}
-      <Card title="Monthly Mood Overview" style={{ marginBottom: '20px', maxWidth: '600px' }}>
-        <Select value={timePeriod} onChange={(value) => setTimePeriod(value)} style={{ marginBottom: '10px' }}>
-          <Option value="week">Past Week</Option>
-          <Option value="month">Past Month</Option>
-          <Option value="all">All Time</Option>
+      <Card title="Monthly Mood Overview" style={{ marginBottom: '20px' }}>
+        <Select value={timePeriod} onChange={setTimePeriod} style={{ marginBottom: '10px' }}>
+          <Option value="week">Last 7 days</Option>
+          <Option value="month">Last 30 days</Option>
         </Select>
-        <List
-          itemLayout="horizontal"
-          dataSource={filteredLogs}
-          renderItem={item => (
-            <List.Item actions={[<Button type="link" onClick={() => deleteMood(item.id)}>Delete</Button>]}>
-              <List.Item.Meta
-                title={<Typography.Text>{item.mood}</Typography.Text>}
-                description={new Date(item.timestamp.seconds * 1000).toLocaleDateString()}
-              />
-            </List.Item>
-          )}
+        <Line data={chartData} options={{ responsive: true, plugins: { legend: { display: true } } }} />
+      </Card>
+
+      {/* Period Tracker */}
+      <Card title="Period Tracker" style={{ marginBottom: '20px', maxWidth: '500px' }}>
+        <Input
+          type="date"
+          value={periodStartDate}
+          onChange={(e) => setPeriodStartDate(e.target.value)}
+          placeholder="Start date of your last period"
+          style={{ marginBottom: '10px' }}
         />
-        <Line data={chartData} />
+        <Input
+          type="number"
+          value={cycleLength}
+          onChange={(e) => setCycleLength(parseInt(e.target.value, 10))}
+          placeholder="Cycle length in days"
+          style={{ marginBottom: '10px' }}
+        />
+        <Button type="primary" onClick={handlePeriodSubmit}>Track Period</Button>
       </Card>
 
-      {/* Period Tracker Section */}
-      <Card title="Period Tracker" style={{ maxWidth: '400px', marginBottom: '20px' }}>
-        <Space direction="vertical" size="middle">
-          <Input
-            type="date"
-            onChange={(e) => setPeriodStartDate(e.target.value)}
-            placeholder="Last period start date"
-          />
-          <Input
-            type="number"
-            value={cycleLength}
-            onChange={(e) => setCycleLength(e.target.value)}
-            placeholder="Average cycle length (days)"
-          />
-          <Button type="primary" onClick={handlePeriodSubmit}>Track Period</Button>
-        </Space>
-      </Card>
-
-      {/* Period Log Table */}
-      <Card title="Logged Periods" style={{ marginBottom: '20px', maxWidth: '600px' }}>
+      {/* Period Logs Table */}
+      <Card title="Period Logs" style={{ marginTop: '20px' }}>
         <Table dataSource={periodLogs} columns={columns} rowKey="id" />
       </Card>
+
+      {/* Virtual Flower */}
+      {showFlower && (
+        <div className="virtual-flower">
+          <img src="path_to_flower_image" alt="Flower" style={{ width: '100px' }} />
+        </div>
+      )}
     </div>
   );
 };
