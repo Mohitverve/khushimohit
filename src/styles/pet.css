@@ -1,0 +1,59 @@
+.pet-container {
+    position: relative;
+  }
+  
+  .pet-image-container {
+    position: relative;
+  }
+  
+  .pet-image {
+    max-width: 500px;
+    align-items: center;
+    height: auto;
+  }
+
+  
+
+  .pet-image.tickle {
+    animation: tickle 0.5s ease;
+  }
+
+  @keyframes tickle {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+  }
+  
+  .pet-speech-bubble {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 200px;
+    z-index: 10;
+  }
+  
+  .pet-speech-bubble::before {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 20px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent #fff transparent;
+  }
+
+  
+  .pet-container.happy img {
+    animation: wagTail 1s infinite;
+  }
+  
+  @keyframes wagTail {
+    0%, 100% { transform: rotate(0); }
+    50% { transform: rotate(20deg); }
+  }
+  

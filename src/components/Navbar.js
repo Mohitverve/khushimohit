@@ -147,6 +147,9 @@ function Navbar() {
       <Menu.Item key="MoodJournal">
         <Link to="/MoodJournal">Periods</Link>
       </Menu.Item>
+      <Menu.Item key="Pet">
+        <Link to="/Pet">Your Pet</Link>
+      </Menu.Item>
     </Menu>
   );
 

@@ -21,6 +21,7 @@ import Story from './components/Story';
 // src/index.js or src/App.js
 import 'antd/dist/reset.css'; // Reset Ant Design CSS
 import MoodJournal from './components/MoodJournal';
+import Pet from './components/Pet';
 
 
 function App() {
@@ -139,6 +140,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <MoodJournal />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/Pet"
+            element={
+              <ProtectedRoute>
+                <Pet />
               </ProtectedRoute>
             }
           />

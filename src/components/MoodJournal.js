@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Card, Space, List, Typography, message, Input, Select, notification } from 'antd';
+import { Button, Card, Space, List, Typography, message, Input, Select, notification, Table } from 'antd';
 import { collection, addDoc, deleteDoc, doc, onSnapshot } from 'firebase/firestore';
 import { Line } from 'react-chartjs-2';
 import { motion } from 'framer-motion';
@@ -34,6 +34,11 @@ const MoodJournal = () => {
   const [timePeriod, setTimePeriod] = useState('week'); // Default filter to 'week'
   const [showFlower, setShowFlower] = useState(false);
   const [messageContent, setMessageContent] = useState('');
+
+  // New period tracker state
+  const [periodStartDate, setPeriodStartDate] = useState(null);
+  const [cycleLength, setCycleLength] = useState(28); // Default cycle length in days
+  const [periodLogs, setPeriodLogs] = useState([]); // State to store period logs
 
   const handleMoodSubmit = async () => {
     try {
@@ -75,6 +80,14 @@ const MoodJournal = () => {
   useEffect(() => {
     const unsubscribe = onSnapshot(collection(db, 'moods'), (snapshot) => {
       setMoodLogs(snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })));
+    });
+    return () => unsubscribe();
+  }, []);
+
+  // Fetch period logs
+  useEffect(() => {
+    const unsubscribe = onSnapshot(collection(db, 'periods'), (snapshot) => {
+      setPeriodLogs(snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })));
     });
     return () => unsubscribe();
   }, []);
@@ -122,6 +135,50 @@ const MoodJournal = () => {
     return () => clearInterval(interval);
   }, []);
 
+  const handlePeriodSubmit = async () => {
+    if (periodStartDate) {
+      const startDate = new Date(periodStartDate);
+      const nextPeriodDate = new Date(startDate);
+      nextPeriodDate.setDate(nextPeriodDate.getDate() + cycleLength); // Calculate next period date
+      
+      message.info(`Your next period is expected on: ${nextPeriodDate.toDateString()}`);
+      
+      // Log the next period date in Firestore
+      try {
+        await addDoc(collection(db, 'periods'), {
+          startDate: startDate.toDateString(),
+          cycleLength: cycleLength,
+          nextPeriodDate: nextPeriodDate.toDateString(),
+          timestamp: new Date(),
+        });
+        message.success('Period tracking data logged successfully!');
+      } catch (error) {
+        message.error('Failed to log period data.');
+      }
+    } else {
+      message.warning('Please select a start date for your last period.');
+    }
+  };
+  
+  // Period log table columns
+  const columns = [
+    {
+      title: 'Period Start Date',
+      dataIndex: 'startDate',
+      key: 'startDate',
+    },
+    {
+      title: 'Cycle Length (days)',
+      dataIndex: 'cycleLength',
+      key: 'cycleLength',
+    },
+    {
+      title: 'Next Period Date',
+      dataIndex: 'nextPeriodDate',
+      key: 'nextPeriodDate',
+    },
+  ];
+
   return (
     <div style={{ padding: '20px', textAlign: 'left', margin: 'auto', maxWidth: '1200px' }}>
       {/* Mood Input Section */}
@@ -167,48 +224,36 @@ const MoodJournal = () => {
             <List.Item actions={[<Button type="link" onClick={() => deleteMood(item.id)}>Delete</Button>]}>
               <List.Item.Meta
                 title={<Typography.Text>{item.mood}</Typography.Text>}
-                description={`${new Date(item.timestamp.seconds * 1000).toLocaleString()} - ${item.description}`}
+                description={new Date(item.timestamp.seconds * 1000).toLocaleDateString()}
               />
             </List.Item>
           )}
         />
-      </Card>
-
-      {/* Mood Chart */}
-      <Card title="Mood Trend Graph" style={{ marginBottom: '20px', maxWidth: '600px' }}>
         <Line data={chartData} />
       </Card>
 
-      {/* Flower and Rose Animation */}
-      {showFlower && mood === 'Down' && (
-        <motion.div
-          className="flower-rose-animation"
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0 }}
-          style={{ textAlign: 'center', margin: '20px 0' }}
-        >
-          <motion.div
-            className="rose-animation"
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 2 }}
-            style={{ fontSize: '48px' }}
-          >
-            🌹
-          </motion.div>
-          <motion.div
-            className="message-animation"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0 }}
-            style={{ marginTop: '10px', fontSize: '18px' }}
-          >
-            Here’s a virtual flower to brighten your day!
-          </motion.div>
-        </motion.div>
-      )}
+      {/* Period Tracker Section */}
+      <Card title="Period Tracker" style={{ maxWidth: '400px', marginBottom: '20px' }}>
+        <Space direction="vertical" size="middle">
+          <Input
+            type="date"
+            onChange={(e) => setPeriodStartDate(e.target.value)}
+            placeholder="Last period start date"
+          />
+          <Input
+            type="number"
+            value={cycleLength}
+            onChange={(e) => setCycleLength(e.target.value)}
+            placeholder="Average cycle length (days)"
+          />
+          <Button type="primary" onClick={handlePeriodSubmit}>Track Period</Button>
+        </Space>
+      </Card>
 
+      {/* Period Log Table */}
+      <Card title="Logged Periods" style={{ marginBottom: '20px', maxWidth: '600px' }}>
+        <Table dataSource={periodLogs} columns={columns} rowKey="id" />
+      </Card>
     </div>
   );
 };
