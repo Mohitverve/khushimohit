@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Button, Card, Row, Col, message, Modal, List, Avatar, Badge } from 'antd';
 import { getFirestore, doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
@@ -27,7 +27,7 @@ const Game = () => {
   const auth = getAuth();
   const db = getFirestore();
 
-  const fetchUserData = async () => {
+  const fetchUserData = useCallback(async () => {
     const userDocRef = doc(db, 'users', auth.currentUser.uid);
     const userDoc = await getDoc(userDocRef);
 
@@ -38,13 +38,13 @@ const Game = () => {
     } else {
       await setDoc(userDocRef, { rewards: [], usedCards: [] });
     }
-  };
+  }, [auth.currentUser.uid, db]);
 
   useEffect(() => {
     if (auth.currentUser) {
       fetchUserData();
     }
-  
+
     if (isGameActive) {
       const interval = setInterval(() => {
         if (timer > 0) {
@@ -56,7 +56,7 @@ const Game = () => {
       }, 1000);
       return () => clearInterval(interval);
     }
-  }, [auth.currentUser, timer, isGameActive, db, fetchUserData]); // Added fetchUserData to dependencies
+  }, [auth.currentUser, timer, isGameActive, fetchUserData]); // No need to add db to dependencies
 
   const handleAnswer = async (isCorrect) => {
     if (isCorrect) {
