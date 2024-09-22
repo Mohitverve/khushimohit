@@ -56,7 +56,7 @@ const Game = () => {
       }, 1000);
       return () => clearInterval(interval);
     }
-  }, [auth.currentUser, timer, isGameActive, db]); // Added db to dependencies
+  }, [auth.currentUser, timer, isGameActive, db, fetchUserData]); // Added fetchUserData to dependencies
 
   const handleAnswer = async (isCorrect) => {
     if (isCorrect) {
