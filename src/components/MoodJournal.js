@@ -32,7 +32,7 @@ const MoodJournal = () => {
   const [moodLogs, setMoodLogs] = useState([]);
   const [moodDescription, setMoodDescription] = useState('');
   const [timePeriod, setTimePeriod] = useState('week'); // Default filter to 'week'
-  const [showFlower, setShowFlower] = useState(false);
+  const [ setShowFlower] = useState(false);
   const [messageContent, setMessageContent] = useState('');
 
   // New period tracker state
