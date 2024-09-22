@@ -41,19 +41,6 @@ const Game = () => {
   };
 
   useEffect(() => {
-    const fetchUserData = async () => {
-      const userDocRef = doc(db, 'users', auth.currentUser.uid);
-      const userDoc = await getDoc(userDocRef);
-  
-      if (userDoc.exists()) {
-        const userData = userDoc.data();
-        setUserRewards(userData.rewards || []);
-        setUsedCards(userData.usedCards || []);
-      } else {
-        await setDoc(userDocRef, { rewards: [], usedCards: [] });
-      }
-    };
-  
     if (auth.currentUser) {
       fetchUserData();
     }
@@ -69,8 +56,7 @@ const Game = () => {
       }, 1000);
       return () => clearInterval(interval);
     }
-  }, [auth.currentUser, timer, isGameActive]);
-  
+  }, [auth.currentUser, timer, isGameActive, db]); // Added db to dependencies
 
   const handleAnswer = async (isCorrect) => {
     if (isCorrect) {

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Card, Space, message, Input, Select, notification, Table } from 'antd'; // Removed unused List, Typography
+import { Button, Card, Space, message, Input, Select, notification, Table } from 'antd';
 import { collection, addDoc, deleteDoc, doc, onSnapshot } from 'firebase/firestore';
 import { Line } from 'react-chartjs-2';
 import { motion } from 'framer-motion';
-import { db } from '../components/firebaseConfig'; // Import db for Firestore
-import '../styles/mood.css'; // Custom CSS
+import { db } from '../components/firebaseConfig';
+import '../styles/mood.css';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -31,26 +31,19 @@ const MoodJournal = () => {
   const [mood, setMood] = useState(null);
   const [moodLogs, setMoodLogs] = useState([]);
   const [moodDescription, setMoodDescription] = useState('');
-  const [timePeriod, setTimePeriod] = useState('week'); // Default filter to 'week'
-  const [ setShowFlower] = useState(false);
+  const [timePeriod, setTimePeriod] = useState('week');
   const [messageContent, setMessageContent] = useState('');
 
-  // New period tracker state
   const [periodStartDate, setPeriodStartDate] = useState('');
-  const [cycleLength, setCycleLength] = useState(28); // Default cycle length in days
-  const [periodLogs, setPeriodLogs] = useState([]); // State to store period logs
+  const [cycleLength, setCycleLength] = useState(28);
+  const [periodLogs, setPeriodLogs] = useState([]);
 
   const handleMoodSubmit = async () => {
     try {
       await addDoc(collection(db, 'moods'), { mood, description: moodDescription, timestamp: new Date() });
       message.success('Mood logged successfully!');
       setMood(null);
-      setMoodDescription(''); // Clear the description input after submission
-
-      if (mood === 'Down') {
-        setShowFlower(true);
-        setTimeout(() => setShowFlower(false), 5000); // Hide flower after 5 seconds
-      }
+      setMoodDescription('');
 
       // Set motivational message
       if (mood === 'Happy') {
@@ -61,22 +54,13 @@ const MoodJournal = () => {
         setMessageContent('Hugs, kisses, and a rose for you! 🤗😘🌹');
       }
       
-      // Clear message after 5 seconds
       setTimeout(() => setMessageContent(''), 5000);
     } catch (error) {
       message.error('Failed to log mood.');
     }
   };
 
-  const deleteMood = async (id) => {
-    try {
-      await deleteDoc(doc(db, 'moods', id));
-      message.success('Mood deleted!');
-    } catch (error) {
-      message.error('Failed to delete mood.');
-    }
-  };
-
+  
   const deletePeriodLog = async (id) => {
     try {
       await deleteDoc(doc(db, 'periods', id));
@@ -100,7 +84,6 @@ const MoodJournal = () => {
     return () => unsubscribe();
   }, []);
 
-  // Filter mood logs based on selected time period
   const filteredLogs = moodLogs.filter(log => {
     const logDate = new Date(log.timestamp.seconds * 1000);
     const now = new Date();
@@ -109,7 +92,6 @@ const MoodJournal = () => {
     return true;
   });
 
-  // Mood data for graph
   const moodData = filteredLogs.map((log) => ({ date: new Date(log.timestamp.seconds * 1000).toLocaleDateString(), mood: log.mood }));
   const chartData = {
     labels: moodData.map((data) => data.date),
@@ -123,7 +105,6 @@ const MoodJournal = () => {
     ],
   };
 
-  // Celebrate mood milestones
   useEffect(() => {
     const happyMoods = moodLogs.filter(log => log.mood === 'Happy');
     if (happyMoods.length >= 7) {
@@ -131,7 +112,6 @@ const MoodJournal = () => {
     }
   }, [moodLogs]);
 
-  // Daily reminder to log mood
   useEffect(() => {
     const notify = () => {
       notification.open({
@@ -139,7 +119,7 @@ const MoodJournal = () => {
         description: 'Don’t forget to log your mood today!',
       });
     };
-    const interval = setInterval(notify, 86400000); // Remind every 24 hours
+    const interval = setInterval(notify, 86400000);
     return () => clearInterval(interval);
   }, []);
 
@@ -147,11 +127,10 @@ const MoodJournal = () => {
     if (periodStartDate) {
       const startDate = new Date(periodStartDate);
       const nextPeriodDate = new Date(startDate);
-      nextPeriodDate.setDate(nextPeriodDate.getDate() + cycleLength); // Calculate next period date
+      nextPeriodDate.setDate(nextPeriodDate.getDate() + cycleLength);
       
       message.info(`Your next period is expected on: ${nextPeriodDate.toDateString()}`);
       
-      // Log the next period date in Firestore
       try {
         await addDoc(collection(db, 'periods'), {
           startDate: startDate.toDateString(),
@@ -168,7 +147,6 @@ const MoodJournal = () => {
     }
   };
   
-  // Period log table columns
   const columns = [
     {
       title: 'Period Start Date',
@@ -196,7 +174,6 @@ const MoodJournal = () => {
 
   return (
     <div style={{ padding: '20px', textAlign: 'left', margin: 'auto', maxWidth: '1200px' }}>
-      {/* Mood Input Section */}
       <Card title="Daily Mood Check-in" style={{ marginBottom: '20px', maxWidth: '400px' }}>
         <Space>
           <Button type={mood === 'Happy' ? 'primary' : 'default'} onClick={() => setMood('Happy')}>Happy</Button>
@@ -212,7 +189,6 @@ const MoodJournal = () => {
         <Button type="primary" style={{ marginTop: '10px' }} onClick={handleMoodSubmit} disabled={!mood}>Submit Mood</Button>
       </Card>
 
-      {/* Motivational Message */}
       {messageContent && (
         <motion.div
           className="message-animation"
@@ -224,7 +200,6 @@ const MoodJournal = () => {
         </motion.div>
       )}
 
-      {/* Mood Tracker Section */}
       <Card title="Mood Tracker" style={{ marginBottom: '20px' }}>
         <Select value={timePeriod} onChange={setTimePeriod} style={{ width: '200px', marginBottom: '10px' }}>
           <Option value="week">Last Week</Option>
@@ -234,7 +209,6 @@ const MoodJournal = () => {
         <Line data={chartData} />
       </Card>
 
-      {/* Period Tracker Section */}
       <Card title="Period Tracker" style={{ marginBottom: '20px', maxWidth: '400px' }}>
         <Space direction="vertical">
           <Input
@@ -255,9 +229,8 @@ const MoodJournal = () => {
         </Space>
       </Card>
 
-      {/* Period Logs Section */}
       <Card title="Period Logs" style={{ marginBottom: '20px' }}>
-        <Table columns={columns} dataSource={periodLogs} rowKey="id" />
+        <Table columns={columns} dataSource={periodLogs} pagination={false} />
       </Card>
     </div>
   );
