@@ -27,6 +27,19 @@ const Game = () => {
   const auth = getAuth();
   const db = getFirestore();
 
+  const fetchUserData = async () => {
+    const userDocRef = doc(db, 'users', auth.currentUser.uid);
+    const userDoc = await getDoc(userDocRef);
+
+    if (userDoc.exists()) {
+      const userData = userDoc.data();
+      setUserRewards(userData.rewards || []);
+      setUsedCards(userData.usedCards || []);
+    } else {
+      await setDoc(userDocRef, { rewards: [], usedCards: [] });
+    }
+  };
+
   useEffect(() => {
     if (auth.currentUser) {
       fetchUserData();
@@ -43,20 +56,7 @@ const Game = () => {
       }, 1000);
       return () => clearInterval(interval);
     }
-  }, [auth.currentUser, timer, isGameActive]);
-
-  const fetchUserData = async () => {
-    const userDocRef = doc(db, 'users', auth.currentUser.uid);
-    const userDoc = await getDoc(userDocRef);
-
-    if (userDoc.exists()) {
-      const userData = userDoc.data();
-      setUserRewards(userData.rewards || []);
-      setUsedCards(userData.usedCards || []);
-    } else {
-      await setDoc(userDocRef, { rewards: [], usedCards: [] });
-    }
-  };
+  }, [auth.currentUser, timer, isGameActive, fetchUserData]);
 
   const handleAnswer = async (isCorrect) => {
     if (isCorrect) {
