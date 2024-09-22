@@ -1,7 +1,6 @@
-// src/firebase.js
 import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, addDoc, getDocs } from 'firebase/firestore'; // Import Firestore methods
-import { getStorage } from 'firebase/storage';  // Import Firebase Storage
+import { getFirestore, collection, addDoc, getDocs, setDoc, doc } from 'firebase/firestore'; // Add setDoc and doc
+import { getStorage } from 'firebase/storage';
 import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { getMessaging } from 'firebase/messaging';
 
@@ -20,7 +19,7 @@ const db = getFirestore(app);
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 
-export { db, collection, addDoc, getDocs }; // Export Firestore methods
-export const storage = getStorage(app);  // Initialize Firebase Storage
+export { db, collection, addDoc, getDocs, setDoc, doc }; // Export setDoc and doc
+export const storage = getStorage(app);
 export { auth, provider, signInWithPopup };
 export const messaging = getMessaging(app);
