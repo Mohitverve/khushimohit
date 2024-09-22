@@ -42,7 +42,7 @@ const Game = () => {
     if (auth.currentUser) {
       fetchUserData();
     }
-
+  
     if (isGameActive) {
       const interval = setInterval(() => {
         if (timer > 0) {
@@ -54,8 +54,7 @@ const Game = () => {
       }, 1000);
       return () => clearInterval(interval);
     }
-  }, [timer, isGameActive]);
-
+  }, [auth.currentUser, fetchUserData, timer, isGameActive]);
   const fetchUserData = async () => {
     const userDocRef = doc(db, 'users', auth.currentUser.uid);
     const userDoc = await getDoc(userDocRef);

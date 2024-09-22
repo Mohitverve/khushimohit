@@ -150,6 +150,9 @@ function Navbar() {
       <Menu.Item key="Pet">
         <Link to="/Pet">Your Pet</Link>
       </Menu.Item>
+      <Menu.Item key="Game  ">
+        <Link to="/Game">Game</Link>
+      </Menu.Item>
     
     </Menu>
   );
