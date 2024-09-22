@@ -1,0 +1,254 @@
+[
+  {
+    "question": "What is the primary role of a Company Secretary?",
+    "options": [
+      { "text": "Corporate Governance", "isCorrect": true },
+      { "text": "Sales Management", "isCorrect": false },
+      { "text": "Human Resources", "isCorrect": false },
+      { "text": "Marketing", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Who is responsible for filing documents with the RoC?",
+    "options": [
+      { "text": "Company Secretary", "isCorrect": true },
+      { "text": "CEO", "isCorrect": false },
+      { "text": "CFO", "isCorrect": false },
+      { "text": "Board of Directors", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "What is the maximum number of directors allowed in a private company?",
+    "options": [
+      { "text": "10", "isCorrect": false },
+      { "text": "15", "isCorrect": true },
+      { "text": "20", "isCorrect": false },
+      { "text": "Unlimited", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "What does 'CSR' stand for?",
+    "options": [
+      { "text": "Corporate Social Responsibility", "isCorrect": true },
+      { "text": "Corporate Strategic Review", "isCorrect": false },
+      { "text": "Corporate Security Regulations", "isCorrect": false },
+      { "text": "Corporate Standard Report", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Which document outlines a company's structure and purpose?",
+    "options": [
+      { "text": "Memorandum of Association", "isCorrect": true },
+      { "text": "Articles of Association", "isCorrect": false },
+      { "text": "Shareholder Agreement", "isCorrect": false },
+      { "text": "Business Plan", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "What is the minimum number of directors required in a public company?",
+    "options": [
+      { "text": "2", "isCorrect": false },
+      { "text": "3", "isCorrect": true },
+      { "text": "5", "isCorrect": false },
+      { "text": "7", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "What is a key function of corporate governance?",
+    "options": [
+      { "text": "Ensuring accountability", "isCorrect": true },
+      { "text": "Sales forecasting", "isCorrect": false },
+      { "text": "Market analysis", "isCorrect": false },
+      { "text": "Cost reduction", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "What does the term 'fiduciary duty' mean?",
+    "options": [
+      { "text": "Obligation to act in another's best interest", "isCorrect": true },
+      { "text": "Duty to maximize profits", "isCorrect": false },
+      { "text": "Responsibility to shareholders", "isCorrect": false },
+      { "text": "Liability for business debts", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Who typically signs the annual return of a company?",
+    "options": [
+      { "text": "Company Secretary", "isCorrect": true },
+      { "text": "Shareholders", "isCorrect": false },
+      { "text": "Board of Directors", "isCorrect": false },
+      { "text": "CEO", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "What is the purpose of a company’s Articles of Association?",
+    "options": [
+      { "text": "To regulate the company's internal affairs", "isCorrect": true },
+      { "text": "To define the company’s purpose", "isCorrect": false },
+      { "text": "To outline financial statements", "isCorrect": false },
+      { "text": "To describe the company’s shareholders", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "What is a common requirement for a company to be listed on a stock exchange?",
+    "options": [
+      { "text": "Minimum share capital", "isCorrect": true },
+      { "text": "Minimum debt", "isCorrect": false },
+      { "text": "Maximum shareholders", "isCorrect": false },
+      { "text": "Minimum age of directors", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Which of the following is an internal control measure?",
+    "options": [
+      { "text": "Segregation of duties", "isCorrect": true },
+      { "text": "Annual audits", "isCorrect": false },
+      { "text": "Market analysis", "isCorrect": false },
+      { "text": "Profit margin assessment", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "What is the role of an external auditor?",
+    "options": [
+      { "text": "To provide an independent opinion on financial statements", "isCorrect": true },
+      { "text": "To manage the company's finances", "isCorrect": false },
+      { "text": "To create financial reports", "isCorrect": false },
+      { "text": "To prepare tax returns", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Which law governs corporate entities in India?",
+    "options": [
+      { "text": "Companies Act, 2013", "isCorrect": true },
+      { "text": "Income Tax Act, 1961", "isCorrect": false },
+      { "text": "Securities and Exchange Board of India Act, 1992", "isCorrect": false },
+      { "text": "Negotiable Instruments Act, 1881", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "What is a statutory meeting?",
+    "options": [
+      { "text": "A meeting held at least once a year", "isCorrect": false },
+      { "text": "The first meeting of shareholders after incorporation", "isCorrect": true },
+      { "text": "A meeting to approve financial statements", "isCorrect": false },
+      { "text": "A meeting to discuss audits", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "What is the primary focus of corporate finance?",
+    "options": [
+      { "text": "Maximizing shareholder value", "isCorrect": true },
+      { "text": "Reducing operational costs", "isCorrect": false },
+      { "text": "Increasing market share", "isCorrect": false },
+      { "text": "Enhancing employee benefits", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "What is an independent director?",
+    "options": [
+      { "text": "A director with no material relationship with the company", "isCorrect": true },
+      { "text": "A director from the company's founding family", "isCorrect": false },
+      { "text": "A director who is also a major shareholder", "isCorrect": false },
+      { "text": "A director who is involved in daily operations", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "What is the purpose of a corporate policy manual?",
+    "options": [
+      { "text": "To outline the company’s operational procedures", "isCorrect": true },
+      { "text": "To dictate employee salaries", "isCorrect": false },
+      { "text": "To set marketing strategies", "isCorrect": false },
+      { "text": "To list all employees", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "What does the term 'liquidation' mean?",
+    "options": [
+      { "text": "The process of winding up a company’s affairs", "isCorrect": true },
+      { "text": "Increasing a company’s market value", "isCorrect": false },
+      { "text": "Filing for bankruptcy", "isCorrect": false },
+      { "text": "Expanding business operations", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "What is a proxy in a corporate context?",
+    "options": [
+      { "text": "A person authorized to act on behalf of a shareholder", "isCorrect": true },
+      { "text": "A type of stock", "isCorrect": false },
+      { "text": "A method of securing loans", "isCorrect": false },
+      { "text": "A type of corporate governance", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Which of the following is a financial statement?",
+    "options": [
+      { "text": "Balance Sheet", "isCorrect": true },
+      { "text": "Shareholder Agreement", "isCorrect": false },
+      { "text": "Business Model Canvas", "isCorrect": false },
+      { "text": "Mission Statement", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "What is insider trading?",
+    "options": [
+      { "text": "Buying or selling stocks based on non-public information", "isCorrect": true },
+      { "text": "Trading stocks during market hours", "isCorrect": false },
+      { "text": "Investing in stocks for a short period", "isCorrect": false },
+      { "text": "Buying stocks on margin", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "What is the role of the audit committee?",
+    "options": [
+      { "text": "Overseeing the company’s financial reporting and disclosure", "isCorrect": true },
+      { "text": "Managing the company’s operations", "isCorrect": false },
+      { "text": "Conducting market research", "isCorrect": false },
+      { "text": "Developing marketing strategies", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "What does the term 'shareholder' refer to?",
+    "options": [
+      { "text": "An individual or entity that owns shares in a company", "isCorrect": true },
+      { "text": "A company that issues shares", "isCorrect": false },
+      { "text": "A person who works for a company", "isCorrect": false },
+      { "text": "A director of the company", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "What is a dividend?",
+    "options": [
+      { "text": "A payment made to shareholders from profits", "isCorrect": true },
+      { "text": "A type of company expense", "isCorrect": false },
+      { "text": "An investment strategy", "isCorrect": false },
+      { "text": "A type of loan", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "What is a hostile takeover?",
+    "options": [
+      { "text": "Acquisition of a company against its wishes", "isCorrect": true },
+      { "text": "Voluntary merger of two companies", "isCorrect": false },
+      { "text": "Friendly acquisition by mutual agreement", "isCorrect": false },
+      { "text": "Purchase of shares on the open market", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "What is meant by 'capital structure'?",
+    "options": [
+      { "text": "The mix of debt and equity financing in a company", "isCorrect": true },
+      { "text": "The company’s business model", "isCorrect": false },
+      { "text": "The organizational hierarchy of a company", "isCorrect": false },
+      { "text": "The location of company offices", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "What is meant by 'due diligence'?",
+    "options": [
+      { "text": "The investigation or audit of a potential investment", "isCorrect": true },
+      { "text": "The process of making a business decision", "isCorrect": false },
+      { "text": "The review of annual reports", "isCorrect": false },
+      { "text": "The creation of business plans", "isCorrect": false }
+    ]
+  }
+]

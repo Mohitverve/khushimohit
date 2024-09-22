@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Card, Space, List, Typography, message, Input, Select, notification, Table } from 'antd';
+import { Button, Card, Space, message, Input, Select, notification, Table } from 'antd'; // Removed unused List, Typography
 import { collection, addDoc, deleteDoc, doc, onSnapshot } from 'firebase/firestore';
 import { Line } from 'react-chartjs-2';
 import { motion } from 'framer-motion';
 import { db } from '../components/firebaseConfig'; // Import db for Firestore
-import '../styles/mood.css';  // Add your custom CSS here
+import '../styles/mood.css'; // Custom CSS
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -218,52 +218,47 @@ const MoodJournal = () => {
           className="message-animation"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0 }}
-          style={{ marginBottom: '20px', textAlign: 'center', fontSize: '18px' }}
+          exit={{ opacity: 0, scale: 0.8 }}
         >
-          {messageContent}
+          <h3>{messageContent}</h3>
         </motion.div>
       )}
 
-      {/* Mood Logs with Filter */}
-      <Card title="Monthly Mood Overview" style={{ marginBottom: '20px' }}>
-        <Select value={timePeriod} onChange={setTimePeriod} style={{ marginBottom: '10px' }}>
-          <Option value="week">Last 7 days</Option>
-          <Option value="month">Last 30 days</Option>
+      {/* Mood Tracker Section */}
+      <Card title="Mood Tracker" style={{ marginBottom: '20px' }}>
+        <Select value={timePeriod} onChange={setTimePeriod} style={{ width: '200px', marginBottom: '10px' }}>
+          <Option value="week">Last Week</Option>
+          <Option value="month">Last Month</Option>
+          <Option value="all">All Time</Option>
         </Select>
-        <Line data={chartData} options={{ responsive: true, plugins: { legend: { display: true } } }} />
+        <Line data={chartData} />
       </Card>
 
-      {/* Period Tracker */}
-      <Card title="Period Tracker" style={{ marginBottom: '20px', maxWidth: '500px' }}>
-        <Input
-          type="date"
-          value={periodStartDate}
-          onChange={(e) => setPeriodStartDate(e.target.value)}
-          placeholder="Start date of your last period"
-          style={{ marginBottom: '10px' }}
-        />
-        <Input
-          type="number"
-          value={cycleLength}
-          onChange={(e) => setCycleLength(parseInt(e.target.value, 10))}
-          placeholder="Cycle length in days"
-          style={{ marginBottom: '10px' }}
-        />
-        <Button type="primary" onClick={handlePeriodSubmit}>Track Period</Button>
+      {/* Period Tracker Section */}
+      <Card title="Period Tracker" style={{ marginBottom: '20px', maxWidth: '400px' }}>
+        <Space direction="vertical">
+          <Input
+            type="date"
+            value={periodStartDate}
+            onChange={(e) => setPeriodStartDate(e.target.value)}
+            placeholder="Last Period Start Date"
+          />
+          <Input
+            type="number"
+            value={cycleLength}
+            onChange={(e) => setCycleLength(e.target.value)}
+            placeholder="Cycle Length (days)"
+            min="20"
+            max="40"
+          />
+          <Button type="primary" onClick={handlePeriodSubmit}>Submit</Button>
+        </Space>
       </Card>
 
-      {/* Period Logs Table */}
-      <Card title="Period Logs" style={{ marginTop: '20px' }}>
-        <Table dataSource={periodLogs} columns={columns} rowKey="id" />
+      {/* Period Logs Section */}
+      <Card title="Period Logs" style={{ marginBottom: '20px' }}>
+        <Table columns={columns} dataSource={periodLogs} rowKey="id" />
       </Card>
-
-      {/* Virtual Flower */}
-      {showFlower && (
-        <div className="virtual-flower">
-          <img src="path_to_flower_image" alt="Flower" style={{ width: '100px' }} />
-        </div>
-      )}
     </div>
   );
 };
