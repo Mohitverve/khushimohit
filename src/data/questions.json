@@ -1,254 +1,396 @@
-[
-  {
-    "question": "What is the primary role of a Company Secretary?",
-    "options": [
-      { "text": "Corporate Governance", "isCorrect": true },
-      { "text": "Sales Management", "isCorrect": false },
-      { "text": "Human Resources", "isCorrect": false },
-      { "text": "Marketing", "isCorrect": false }
-    ]
-  },
-  {
-    "question": "Who is responsible for filing documents with the RoC?",
-    "options": [
-      { "text": "Company Secretary", "isCorrect": true },
-      { "text": "CEO", "isCorrect": false },
-      { "text": "CFO", "isCorrect": false },
-      { "text": "Board of Directors", "isCorrect": false }
-    ]
-  },
-  {
-    "question": "What is the maximum number of directors allowed in a private company?",
-    "options": [
-      { "text": "10", "isCorrect": false },
-      { "text": "15", "isCorrect": true },
-      { "text": "20", "isCorrect": false },
-      { "text": "Unlimited", "isCorrect": false }
-    ]
-  },
-  {
-    "question": "What does 'CSR' stand for?",
-    "options": [
-      { "text": "Corporate Social Responsibility", "isCorrect": true },
-      { "text": "Corporate Strategic Review", "isCorrect": false },
-      { "text": "Corporate Security Regulations", "isCorrect": false },
-      { "text": "Corporate Standard Report", "isCorrect": false }
-    ]
-  },
-  {
-    "question": "Which document outlines a company's structure and purpose?",
-    "options": [
-      { "text": "Memorandum of Association", "isCorrect": true },
-      { "text": "Articles of Association", "isCorrect": false },
-      { "text": "Shareholder Agreement", "isCorrect": false },
-      { "text": "Business Plan", "isCorrect": false }
-    ]
-  },
-  {
-    "question": "What is the minimum number of directors required in a public company?",
-    "options": [
-      { "text": "2", "isCorrect": false },
-      { "text": "3", "isCorrect": true },
-      { "text": "5", "isCorrect": false },
-      { "text": "7", "isCorrect": false }
-    ]
-  },
-  {
-    "question": "What is a key function of corporate governance?",
-    "options": [
-      { "text": "Ensuring accountability", "isCorrect": true },
-      { "text": "Sales forecasting", "isCorrect": false },
-      { "text": "Market analysis", "isCorrect": false },
-      { "text": "Cost reduction", "isCorrect": false }
-    ]
-  },
-  {
-    "question": "What does the term 'fiduciary duty' mean?",
-    "options": [
-      { "text": "Obligation to act in another's best interest", "isCorrect": true },
-      { "text": "Duty to maximize profits", "isCorrect": false },
-      { "text": "Responsibility to shareholders", "isCorrect": false },
-      { "text": "Liability for business debts", "isCorrect": false }
-    ]
-  },
-  {
-    "question": "Who typically signs the annual return of a company?",
-    "options": [
-      { "text": "Company Secretary", "isCorrect": true },
-      { "text": "Shareholders", "isCorrect": false },
-      { "text": "Board of Directors", "isCorrect": false },
-      { "text": "CEO", "isCorrect": false }
-    ]
-  },
-  {
-    "question": "What is the purpose of a company’s Articles of Association?",
-    "options": [
-      { "text": "To regulate the company's internal affairs", "isCorrect": true },
-      { "text": "To define the company’s purpose", "isCorrect": false },
-      { "text": "To outline financial statements", "isCorrect": false },
-      { "text": "To describe the company’s shareholders", "isCorrect": false }
-    ]
-  },
-  {
-    "question": "What is a common requirement for a company to be listed on a stock exchange?",
-    "options": [
-      { "text": "Minimum share capital", "isCorrect": true },
-      { "text": "Minimum debt", "isCorrect": false },
-      { "text": "Maximum shareholders", "isCorrect": false },
-      { "text": "Minimum age of directors", "isCorrect": false }
-    ]
-  },
-  {
-    "question": "Which of the following is an internal control measure?",
-    "options": [
-      { "text": "Segregation of duties", "isCorrect": true },
-      { "text": "Annual audits", "isCorrect": false },
-      { "text": "Market analysis", "isCorrect": false },
-      { "text": "Profit margin assessment", "isCorrect": false }
-    ]
-  },
-  {
-    "question": "What is the role of an external auditor?",
-    "options": [
-      { "text": "To provide an independent opinion on financial statements", "isCorrect": true },
-      { "text": "To manage the company's finances", "isCorrect": false },
-      { "text": "To create financial reports", "isCorrect": false },
-      { "text": "To prepare tax returns", "isCorrect": false }
-    ]
-  },
-  {
-    "question": "Which law governs corporate entities in India?",
-    "options": [
-      { "text": "Companies Act, 2013", "isCorrect": true },
-      { "text": "Income Tax Act, 1961", "isCorrect": false },
-      { "text": "Securities and Exchange Board of India Act, 1992", "isCorrect": false },
-      { "text": "Negotiable Instruments Act, 1881", "isCorrect": false }
-    ]
-  },
-  {
-    "question": "What is a statutory meeting?",
-    "options": [
-      { "text": "A meeting held at least once a year", "isCorrect": false },
-      { "text": "The first meeting of shareholders after incorporation", "isCorrect": true },
-      { "text": "A meeting to approve financial statements", "isCorrect": false },
-      { "text": "A meeting to discuss audits", "isCorrect": false }
-    ]
-  },
-  {
-    "question": "What is the primary focus of corporate finance?",
-    "options": [
-      { "text": "Maximizing shareholder value", "isCorrect": true },
-      { "text": "Reducing operational costs", "isCorrect": false },
-      { "text": "Increasing market share", "isCorrect": false },
-      { "text": "Enhancing employee benefits", "isCorrect": false }
-    ]
-  },
-  {
-    "question": "What is an independent director?",
-    "options": [
-      { "text": "A director with no material relationship with the company", "isCorrect": true },
-      { "text": "A director from the company's founding family", "isCorrect": false },
-      { "text": "A director who is also a major shareholder", "isCorrect": false },
-      { "text": "A director who is involved in daily operations", "isCorrect": false }
-    ]
-  },
-  {
-    "question": "What is the purpose of a corporate policy manual?",
-    "options": [
-      { "text": "To outline the company’s operational procedures", "isCorrect": true },
-      { "text": "To dictate employee salaries", "isCorrect": false },
-      { "text": "To set marketing strategies", "isCorrect": false },
-      { "text": "To list all employees", "isCorrect": false }
-    ]
-  },
-  {
-    "question": "What does the term 'liquidation' mean?",
-    "options": [
-      { "text": "The process of winding up a company’s affairs", "isCorrect": true },
-      { "text": "Increasing a company’s market value", "isCorrect": false },
-      { "text": "Filing for bankruptcy", "isCorrect": false },
-      { "text": "Expanding business operations", "isCorrect": false }
-    ]
-  },
-  {
-    "question": "What is a proxy in a corporate context?",
-    "options": [
-      { "text": "A person authorized to act on behalf of a shareholder", "isCorrect": true },
-      { "text": "A type of stock", "isCorrect": false },
-      { "text": "A method of securing loans", "isCorrect": false },
-      { "text": "A type of corporate governance", "isCorrect": false }
-    ]
-  },
-  {
-    "question": "Which of the following is a financial statement?",
-    "options": [
-      { "text": "Balance Sheet", "isCorrect": true },
-      { "text": "Shareholder Agreement", "isCorrect": false },
-      { "text": "Business Model Canvas", "isCorrect": false },
-      { "text": "Mission Statement", "isCorrect": false }
-    ]
-  },
-  {
-    "question": "What is insider trading?",
-    "options": [
-      { "text": "Buying or selling stocks based on non-public information", "isCorrect": true },
-      { "text": "Trading stocks during market hours", "isCorrect": false },
-      { "text": "Investing in stocks for a short period", "isCorrect": false },
-      { "text": "Buying stocks on margin", "isCorrect": false }
-    ]
-  },
-  {
-    "question": "What is the role of the audit committee?",
-    "options": [
-      { "text": "Overseeing the company’s financial reporting and disclosure", "isCorrect": true },
-      { "text": "Managing the company’s operations", "isCorrect": false },
-      { "text": "Conducting market research", "isCorrect": false },
-      { "text": "Developing marketing strategies", "isCorrect": false }
-    ]
-  },
-  {
-    "question": "What does the term 'shareholder' refer to?",
-    "options": [
-      { "text": "An individual or entity that owns shares in a company", "isCorrect": true },
-      { "text": "A company that issues shares", "isCorrect": false },
-      { "text": "A person who works for a company", "isCorrect": false },
-      { "text": "A director of the company", "isCorrect": false }
-    ]
-  },
-  {
-    "question": "What is a dividend?",
-    "options": [
-      { "text": "A payment made to shareholders from profits", "isCorrect": true },
-      { "text": "A type of company expense", "isCorrect": false },
-      { "text": "An investment strategy", "isCorrect": false },
-      { "text": "A type of loan", "isCorrect": false }
-    ]
-  },
-  {
-    "question": "What is a hostile takeover?",
-    "options": [
-      { "text": "Acquisition of a company against its wishes", "isCorrect": true },
-      { "text": "Voluntary merger of two companies", "isCorrect": false },
-      { "text": "Friendly acquisition by mutual agreement", "isCorrect": false },
-      { "text": "Purchase of shares on the open market", "isCorrect": false }
-    ]
-  },
-  {
-    "question": "What is meant by 'capital structure'?",
-    "options": [
-      { "text": "The mix of debt and equity financing in a company", "isCorrect": true },
-      { "text": "The company’s business model", "isCorrect": false },
-      { "text": "The organizational hierarchy of a company", "isCorrect": false },
-      { "text": "The location of company offices", "isCorrect": false }
-    ]
-  },
-  {
-    "question": "What is meant by 'due diligence'?",
-    "options": [
-      { "text": "The investigation or audit of a potential investment", "isCorrect": true },
-      { "text": "The process of making a business decision", "isCorrect": false },
-      { "text": "The review of annual reports", "isCorrect": false },
-      { "text": "The creation of business plans", "isCorrect": false }
-    ]
-  }
-]
+{
+    "Capital Market & Securities Laws": [
+      {
+        "question": "What is the primary purpose of the Competition Act?",
+        "options": [
+          { "text": "To regulate monopolies", "isCorrect": false },
+          { "text": "To promote fair competition and prevent anti-competitive practices", "isCorrect": true },
+          { "text": "To fix market prices", "isCorrect": false },
+          { "text": "To control exports", "isCorrect": false }
+        ]
+      },
+      {
+        "question": "Which entity is responsible for enforcing the Competition Act?",
+        "options": [
+          { "text": "Ministry of Commerce", "isCorrect": false },
+          { "text": "Supreme Court of India", "isCorrect": false },
+          { "text": "Competition Commission of India", "isCorrect": true },
+          { "text": "Reserve Bank of India", "isCorrect": false }
+        ]
+      },
+      {
+        "question": "How does the Competition Act define anti-competitive agreements?",
+        "options": [
+          { "text": "Agreements that promote innovation", "isCorrect": false },
+          { "text": "Agreements that restrict competition or harm market fairness", "isCorrect": true },
+          { "text": "Agreements between companies and government", "isCorrect": false },
+          { "text": "Agreements that promote exports", "isCorrect": false }
+        ]
+      },
+      {
+        "question": "What are the penalties for engaging in anti-competitive behavior under the Competition Act?",
+        "options": [
+          { "text": "Monetary fines and imprisonment", "isCorrect": true },
+          { "text": "Only monetary fines", "isCorrect": false },
+          { "text": "Seizure of assets", "isCorrect": false },
+          { "text": "Revocation of business licenses", "isCorrect": false }
+        ]
+      },
+      {
+        "question": "What is the process for investigating monopolistic practices under the Act?",
+        "options": [
+          { "text": "Investigation by the Supreme Court", "isCorrect": false },
+          { "text": "Investigation by the Competition Commission of India", "isCorrect": true },
+          { "text": "Investigation by the Central Government", "isCorrect": false },
+          { "text": "Investigation by consumer courts", "isCorrect": false }
+        ]
+      },
+      {
+        "question": "What are the powers granted to the Competition Commission under the Act?",
+        "options": [
+          { "text": "To regulate the import and export of goods", "isCorrect": false },
+          { "text": "To investigate and penalize anti-competitive practices", "isCorrect": true },
+          { "text": "To approve or reject business mergers", "isCorrect": false },
+          { "text": "To provide loans to small businesses", "isCorrect": false }
+        ]
+      },
+      {
+        "question": "How does the Act define 'dominant position' in a market?",
+        "options": [
+          { "text": "A company that is the largest exporter", "isCorrect": false },
+          { "text": "A position of economic strength enabling a business to affect market competition", "isCorrect": true },
+          { "text": "The company that holds 100% market share", "isCorrect": false },
+          { "text": "A company with the highest revenue", "isCorrect": false }
+        ]
+      },
+      {
+        "question": "What are the provisions regarding mergers and acquisitions under the Competition Act?",
+        "options": [
+          { "text": "All mergers and acquisitions are approved automatically", "isCorrect": false },
+          { "text": "Mergers that substantially lessen competition are prohibited", "isCorrect": true },
+          { "text": "Only mergers between domestic companies are regulated", "isCorrect": false },
+          { "text": "Mergers and acquisitions are not covered by the Act", "isCorrect": false }
+        ]
+      },
+      {
+        "question": "How does the Competition Act promote competition in various sectors of the economy?",
+        "options": [
+          { "text": "By setting price limits for essential goods", "isCorrect": false },
+          { "text": "By prohibiting anti-competitive agreements and monopolistic practices", "isCorrect": true },
+          { "text": "By allowing monopolies in specific industries", "isCorrect": false },
+          { "text": "By encouraging government-owned businesses", "isCorrect": false }
+        ]
+      },
+      {
+        "question": "What role does the judiciary play in adjudicating disputes related to the Competition Act?",
+        "options": [
+          { "text": "The judiciary directly enforces competition regulations", "isCorrect": false },
+          { "text": "The judiciary hears appeals against Competition Commission rulings", "isCorrect": true },
+          { "text": "The judiciary investigates violations of the Act", "isCorrect": false },
+          { "text": "The judiciary advises the Competition Commission", "isCorrect": false }
+        ]
+      },
+      {
+        "question": "What exemptions, if any, are provided under the Competition Act for certain industries or sectors?",
+        "options": [
+          { "text": "No industries are exempt from the Competition Act", "isCorrect": false },
+          { "text": "Certain government-owned sectors may receive exemptions", "isCorrect": true },
+          { "text": "Only foreign businesses are exempt", "isCorrect": false },
+          { "text": "Export-oriented industries are exempt", "isCorrect": false }
+        ]
+      },
+      {
+        "question": "What is the process for filing a complaint with the Competition Commission?",
+        "options": [
+          { "text": "Through an online portal or direct submission", "isCorrect": true },
+          { "text": "Filing the complaint with the local police", "isCorrect": false },
+          { "text": "Sending the complaint to the Supreme Court", "isCorrect": false },
+          { "text": "Filing the complaint with the Ministry of Finance", "isCorrect": false }
+        ]
+      },
+      {
+        "question": "How does the Act address issues related to price fixing between competitors?",
+        "options": [
+          { "text": "It encourages price fixing to stabilize the economy", "isCorrect": false },
+          { "text": "It strictly prohibits price fixing and imposes penalties", "isCorrect": true },
+          { "text": "It allows price fixing in government contracts", "isCorrect": false },
+          { "text": "It allows price fixing in limited circumstances", "isCorrect": false }
+        ]
+      },
+      {
+        "question": "What guidelines does the Competition Act provide for cross-border competition issues?",
+        "options": [
+          { "text": "It allows foreign companies to fix prices", "isCorrect": false },
+          { "text": "It regulates the competitive behavior of foreign companies operating in India", "isCorrect": true },
+          { "text": "It does not cover cross-border competition", "isCorrect": false },
+          { "text": "It exempts international mergers from regulation", "isCorrect": false }
+        ]
+      },
+      {
+        "question": "What are the rights of businesses under investigation by the Competition Commission?",
+        "options": [
+          { "text": "No rights are provided to businesses under investigation", "isCorrect": false },
+          { "text": "The right to a fair hearing and to present evidence", "isCorrect": true },
+          { "text": "The right to set their own penalties", "isCorrect": false },
+          { "text": "The right to appeal directly to Parliament", "isCorrect": false }
+        ]
+      },
+      {
+        "question": "How does the Act differentiate between fair and unfair competition?",
+        "options": [
+          { "text": "Fair competition promotes monopoly power", "isCorrect": false },
+          { "text": "Unfair competition includes practices that harm consumer welfare", "isCorrect": true },
+          { "text": "Fair competition reduces market access for new businesses", "isCorrect": false },
+          { "text": "Unfair competition benefits large corporations", "isCorrect": false }
+        ]
+      },
+      {
+        "question": "What role do consumers play under the Competition Act in promoting market fairness?",
+        "options": [
+          { "text": "Consumers can file complaints about anti-competitive practices", "isCorrect": true },
+          { "text": "Consumers have no role under the Act", "isCorrect": false },
+          { "text": "Consumers help set market prices", "isCorrect": false },
+          { "text": "Consumers determine penalties for violators", "isCorrect": false }
+        ]
+      },
+      {
+        "question": "What remedies can be sought under the Competition Act for those harmed by anti-competitive practices?",
+        "options": [
+          { "text": "Compensation and legal penalties for offenders", "isCorrect": true },
+          { "text": "Tax benefits for businesses", "isCorrect": false },
+          { "text": "Additional market share", "isCorrect": false },
+          { "text": "Import/export licenses", "isCorrect": false }
+        ]
+      },
+      {
+        "question": "How does the Act address cartels and collusive practices?",
+        "options": [
+          { "text": "It allows cartels to operate freely", "isCorrect": false },
+          { "text": "It imposes strict penalties on cartels and collusion", "isCorrect": true },
+          { "text": "It promotes collusion in certain industries", "isCorrect": false },
+          { "text": "It does not address cartels or collusion", "isCorrect": false }
+        ]
+      }
+    ],
+    "Economic, Business and Commercial Laws": [
+      {
+        "question": "What is the purpose of the Companies Act?",
+        "options": [
+          { "text": "To promote foreign trade", "isCorrect": false },
+          { "text": "To regulate company formation, governance, and dissolution", "isCorrect": true },
+          { "text": "To control market prices", "isCorrect": false },
+          { "text": "To promote government-owned companies", "isCorrect": false }
+        ]
+      }
+    ],
+    "Economic, Commercial and Intellectual Property Laws": [
+      {
+        "question": "Which law protects patents?",
+        "options": [
+          { "text": "Patent Act 1970", "isCorrect": true },
+          { "text": "Trade Secrets Act", "isCorrect": false },
+          { "text": "Company Act", "isCorrect": false }
+        ]
+      }
+    ],
+    "Tax Laws & Practice Part I – Direct Tax": [
+      {
+        "question": "What is the current income tax slab for individuals?",
+        "options": [
+          { "text": "5% for income between 2.5 to 5 lakhs", "isCorrect": true },
+          { "text": "10% for income above 10 lakhs", "isCorrect": false },
+          { "text": "No tax below 5 lakhs", "isCorrect": false }
+        ]
+      }
+    ],
+    "Tax Laws & Practice Part II – Indirect Tax": [
+        {
+          "question": "Which of the following is an indirect tax?",
+          "options": [
+            { "text": "Goods and Services Tax (GST)", "isCorrect": true },
+            { "text": "Income tax", "isCorrect": false },
+            { "text": "Corporate tax", "isCorrect": false }
+          ]
+        },
+        {
+          "question": "What is the definition of indirect taxes?",
+          "options": [
+            { "text": "Taxes directly on income", "isCorrect": false },
+            { "text": "Taxes on goods and services", "isCorrect": true },
+            { "text": "Voluntary contributions", "isCorrect": false },
+            { "text": "None of the above", "isCorrect": false }
+          ]
+        },
+        {
+          "question": "How does indirect taxation differ from direct taxation?",
+          "options": [
+            { "text": "Indirect taxes are levied on goods/services; direct taxes are on income", "isCorrect": true },
+            { "text": "Direct taxes are on goods/services; indirect taxes are on income", "isCorrect": false },
+            { "text": "Both are taxes on income", "isCorrect": false },
+            { "text": "They are the same", "isCorrect": false }
+          ]
+        },
+        {
+          "question": "What are the different types of indirect taxes?",
+          "options": [
+            { "text": "Income Tax, Wealth Tax", "isCorrect": false },
+            { "text": "Customs Duty, Excise Duty, GST", "isCorrect": true },
+            { "text": "Property Tax, Capital Gains Tax", "isCorrect": false },
+            { "text": "None of the above", "isCorrect": false }
+          ]
+        },
+        {
+          "question": "What are the key components of Goods and Services Tax (GST)?",
+          "options": [
+            { "text": "Input Tax Credit, Export Duty, Reverse Charge Mechanism", "isCorrect": false },
+            { "text": "CGST, SGST, IGST", "isCorrect": true },
+            { "text": "VAT, Sales Tax, Custom Duty", "isCorrect": false },
+            { "text": "None of the above", "isCorrect": false }
+          ]
+        },
+        {
+          "question": "How is GST different from the previous tax structure?",
+          "options": [
+            { "text": "Unified tax replacing multiple taxes", "isCorrect": true },
+            { "text": "Higher tax rate", "isCorrect": false },
+            { "text": "It applies only to the manufacturing sector", "isCorrect": false },
+            { "text": "Only applicable to exports", "isCorrect": false }
+          ]
+        },
+        {
+          "question": "What are the types of GST in India?",
+          "options": [
+            { "text": "IGST, CGST, SGST", "isCorrect": true },
+            { "text": "VAT, CST, Excise Duty", "isCorrect": false },
+            { "text": "Custom Duty, Service Tax, VAT", "isCorrect": false },
+            { "text": "All of the above", "isCorrect": false }
+          ]
+        },
+        {
+          "question": "What is the role of input tax credit in GST?",
+          "options": [
+            { "text": "To increase the tax liability", "isCorrect": false },
+            { "text": "To reduce the tax burden by offsetting tax paid on inputs", "isCorrect": true },
+            { "text": "To impose penalties for non-compliance", "isCorrect": false },
+            { "text": "To apply on final consumers only", "isCorrect": false }
+          ]
+        },
+        {
+          "question": "How does the GST registration process work?",
+          "options": [
+            { "text": "Only large businesses are required to register", "isCorrect": false },
+            { "text": "Registration is mandatory for all businesses", "isCorrect": false },
+            { "text": "Registration is done through a central authority portal", "isCorrect": true },
+            { "text": "No registration is required under GST", "isCorrect": false }
+          ]
+        },
+        {
+          "question": "What are the conditions for mandatory GST registration?",
+          "options": [
+            { "text": "Turnover exceeds ₹20 lakhs in most states", "isCorrect": true },
+            { "text": "Voluntary registration for businesses", "isCorrect": false },
+            { "text": "Only required for manufacturers", "isCorrect": false },
+            { "text": "None of the above", "isCorrect": false }
+          ]
+        },
+        {
+          "question": "How is GST calculated on goods and services?",
+          "options": [
+            { "text": "Based on the selling price only", "isCorrect": false },
+            { "text": "As a percentage of the cost price", "isCorrect": false },
+            { "text": "By applying the applicable GST rate to the taxable value", "isCorrect": true },
+            { "text": "None of the above", "isCorrect": false }
+          ]
+        },
+        {
+          "question": "What is the reverse charge mechanism under GST?",
+          "options": [
+            { "text": "GST paid by the buyer instead of the supplier", "isCorrect": true },
+            { "text": "Tax refund mechanism", "isCorrect": false },
+            { "text": "A penalty for delayed GST payment", "isCorrect": false },
+            { "text": "None of the above", "isCorrect": false }
+          ]
+        },
+        {
+          "question": "How are exports and imports treated under GST?",
+          "options": [
+            { "text": "Exports are taxed, imports are tax-exempt", "isCorrect": false },
+            { "text": "Exports are zero-rated, imports are taxed", "isCorrect": true },
+            { "text": "Both exports and imports are taxed at the same rate", "isCorrect": false },
+            { "text": "No tax applies to both", "isCorrect": false }
+          ]
+        },
+        {
+          "question": "What is the GST compliance rating system?",
+          "options": [
+            { "text": "A system to grade taxpayers based on compliance", "isCorrect": true },
+            { "text": "A penalty for late filings", "isCorrect": false },
+            { "text": "A credit rating for businesses", "isCorrect": false },
+            { "text": "None of the above", "isCorrect": false }
+          ]
+        },
+        {
+          "question": "What is the penalty for late filing or non-compliance with GST regulations?",
+          "options": [
+            { "text": "No penalty", "isCorrect": false },
+            { "text": "₹100 per day up to a maximum limit", "isCorrect": true },
+            { "text": "Jail time", "isCorrect": false },
+            { "text": "₹5000 per return", "isCorrect": false }
+          ]
+        },
+        {
+          "question": "How does the GST return filing process work?",
+          "options": [
+            { "text": "Filed annually", "isCorrect": false },
+            { "text": "Filed monthly or quarterly depending on turnover", "isCorrect": true },
+            { "text": "Filed only by large businesses", "isCorrect": false },
+            { "text": "No return filing required", "isCorrect": false }
+          ]
+        },
+        {
+          "question": "What are the different types of GST returns, and when are they filed?",
+          "options": [
+            { "text": "GSTR-1, GSTR-3B filed monthly", "isCorrect": true },
+            { "text": "GSTR-9 filed quarterly", "isCorrect": false },
+            { "text": "GSTR-4 filed monthly", "isCorrect": false },
+            { "text": "No need to file returns", "isCorrect": false }
+          ]
+        },
+        {
+          "question": "How are e-way bills generated under GST for transport of goods?",
+          "options": [
+            { "text": "They are not required for transport", "isCorrect": false },
+            { "text": "Automatically generated during transport", "isCorrect": false },
+            { "text": "Generated online for transport of goods above a certain value", "isCorrect": true },
+            { "text": "Issued only by the tax department", "isCorrect": false }
+          ]
+        },
+        {
+          "question": "What is the role of the GST Council in the Indian taxation system?",
+          "options": [
+            { "text": "It imposes direct taxes", "isCorrect": false },
+            { "text": "It sets the GST rates and reviews policies", "isCorrect": true },
+            { "text": "It only applies to state taxes", "isCorrect": false },
+            { "text": "It has no specific role", "isCorrect": false }
+          ]
+        },
+        {
+          "question": "How has the introduction of GST impacted various sectors of the Indian economy?",
+          "options": [
+            { "text": "It has increased the tax burden on all sectors", "isCorrect": false },
+            { "text": "It has simplified the tax structure and reduced compliance costs", "isCorrect": true },
+            { "text": "It only affects the service sector", "isCorrect": false },
+            { "text": "No impact has been recorded", "isCorrect": false }
+          ]
+        },
+        {
+          "question": "What is the anti-profiteering measure under GST?",
+          "options": [
+            { "text": "Ensures businesses pass on tax benefits to consumers", "isCorrect": true },
+            { "text": "A penalty for non-compliance", "isCorrect": false },
+            { "text": "A scheme for tax refunds", "isCorrect": false },
+            { "text": "None of the above", "isCorrect": false }
+          ]
+        }
+      ]
+    }
