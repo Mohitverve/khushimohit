@@ -53,23 +53,22 @@ function Navbar() {
   const handleAvatarUpload = async (options) => {
     const { file, onSuccess, onError } = options;
     const user = auth.currentUser;
-    
+
     if (user) {
       try {
         const storageRef = ref(storage, `avatars/${user.uid}`);
         await uploadBytes(storageRef, file);
-        
-        const downloadURL = await getDownloadURL(storageRef);
-        
-        const userRef = doc(db, 'users', user.uid);
-        const userDoc = await getDoc(userRef);
 
+        const downloadURL = await getDownloadURL(storageRef);
+        const userRef = doc(db, 'users', user.uid);
+
+        const userDoc = await getDoc(userRef);
         if (userDoc.exists()) {
           await updateDoc(userRef, { photoURL: downloadURL });
         } else {
           await setDoc(userRef, {
             displayName: user.displayName || '',
-            photoURL: downloadURL
+            photoURL: downloadURL,
           });
         }
 
@@ -96,10 +95,7 @@ function Navbar() {
   const dropdownMenu = (
     <Menu>
       <Menu.Item key="upload-avatar">
-        <Upload
-          customRequest={handleAvatarUpload}
-          showUploadList={false}
-        >
+        <Upload customRequest={handleAvatarUpload} showUploadList={false}>
           <Button icon={<UploadOutlined />}>Upload Avatar</Button>
         </Upload>
       </Menu.Item>
@@ -111,56 +107,14 @@ function Navbar() {
 
   const navMenu = (
     <Menu>
-      <Menu.Item key="home">
-        <Link to="/">Home</Link>
-      </Menu.Item>
-      <Menu.Item key="mistakes">
-        <Link to="/mistakes">Mistakes</Link>
-      </Menu.Item>
-      <Menu.Item key="likes-dislikes">
-        <Link to="/likes-dislikes">Likes & Dislikes</Link>
-      </Menu.Item>
-      <Menu.Item key="gallery">
-        <Link to="/media">Gallery</Link>
-      </Menu.Item>
-      <Menu.Item key="messages">
-        <Link to="/ShoppingList">Shopping List</Link>
-      </Menu.Item>
-      <Menu.Item key="countdown">
-        <Link to="/countdown">Countdown</Link>
-      </Menu.Item>
-      <Menu.Item key="songs">
-        <Link to="/songs">Songs</Link>
-      </Menu.Item>
-      <Menu.Item key="favourite">
-        <Link to="/favourite">Favourite</Link>
-      </Menu.Item>
-      <Menu.Item key="Journal">
-        <Link to="/Journal">Journal</Link>
-      </Menu.Item>
-      <Menu.Item key="ReelsComponent">
-        <Link to="/ReelsComponent">Reels</Link>
-      </Menu.Item>
-      <Menu.Item key="Story">
-        <Link to="/Story">Story</Link>
-      </Menu.Item>
-      <Menu.Item key="MoodJournal">
-        <Link to="/MoodJournal">Periods</Link>
-      </Menu.Item>
-      <Menu.Item key="Pet">
-        <Link to="/Pet">Your Pet</Link>
-      </Menu.Item>
-      <Menu.Item key="Game  ">
-        <Link to="/Game">Game</Link>
-      </Menu.Item>
-    
+      {/* Add your links here */}
     </Menu>
   );
 
   return (
     <>
       <Menu mode="horizontal" theme="light">
-        <Dropdown overlay={navMenu} trigger={['click', 'hover']}>
+        <Dropdown overlay={navMenu} trigger={['click']}>
           <Button icon={<EllipsisOutlined />} style={{ border: 'none' }} />
         </Dropdown>
 
@@ -169,7 +123,7 @@ function Navbar() {
             icon={<UserOutlined />}
             src={userProfile.photoURL}
             style={{ cursor: 'pointer', marginLeft: 'auto' }}
-            onClick={showModal} // Open modal on click
+            onClick={showModal}
           />
         </Dropdown>
       </Menu>
